@@ -1,21 +1,21 @@
 import { NavLink } from "react-router-dom";
 import classes from "./Navbar.module.css";
 
-export default function Navbar({ tags, navDestination }) {
+export default function Navbar({ navLinks }) {
   return (
     <>
-      <header classsName={classes.header}>
-        <nav classsName={classes.navbar}>
+      <header className={classes.header}>
+        <nav className={classes.navbar}>
           <ul>
-            {tags.map((tag, index) => (
-              <li key={index}>
+            {navLinks.map((navLink) => (
+              <li key={navLink.navItem}>
                 <NavLink
-                  to={navDestination}
+                  to={navLink.navDest}
                   className={({ isActive }) =>
                     isActive ? classes.active : undefined
                   }
                 >
-                  {tag}
+                  {navLink.navItem}
                 </NavLink>
               </li>
             ))}
