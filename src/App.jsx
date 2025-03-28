@@ -7,15 +7,23 @@ import { EXAMPLES } from "./data.js";
 
 // --------- React Router --------- //
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RootLayout from "./pages/RootLayout.js";
 
 
 function App() {
   const [selectedTopic, setSelectedTopic] = useState(null);
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <RootLayout />
+    }
+  ])
 
   function handleClick(selectedButton) {
     setSelectedTopic(selectedButton);
     console.log(`You Selected: ${selectedButton}`);
   }
+
 
   let tabContent = <p>Please Select a Topic</p>;
 
@@ -33,7 +41,7 @@ function App() {
 
   return (
     <div>
-      <Header />
+      <RouterProvider router={router}/>
       <main>
         <section id="core-concepts">
           <h2>Topics</h2>

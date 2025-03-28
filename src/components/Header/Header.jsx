@@ -1,5 +1,5 @@
 import "./Header.css";
-
+import Navbar from "../Navbar/Navbar";
 const reactDescriptions = ["Fundamental", "Core", "Cruical"];
 function genRandomInt(max) {
   return Math.floor(Math.random() * (max + 1));
@@ -12,6 +12,7 @@ export default function Header() {
     <header>
       <h1>Full-Stack Factory</h1>
       <p>Crafting the parts, you decide how to assemble them</p>
+
     </header>
   );
 }

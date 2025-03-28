@@ -4,15 +4,15 @@ import { NavBar } from "../components/Navbar/Navbar";
 export default function RootLayout() {
   const NAVLINKS = [
     {
-      navItem: "React",
+      navItem: "Home",
       navDest: "/"
     },
     {
-      navItem: "DSA",
+      navItem: "About",
       navDest: "/"
     },
     {
-      navItem: "javaScript",
+      navItem: "Contribute",
       navDest: "/"
     }
   ];
