@@ -1,10 +1,13 @@
 import { useState } from "react";
-
 import { CORE_CONCEPTS } from "./data.js";
 import Header from "./components/Header/Header.jsx";
 import CoreConcept from "./components/CoreConcepts.jsx";
 import TabButton from "./components/TabButton.jsx";
 import { EXAMPLES } from "./data.js";
+
+// --------- React Router --------- //
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 
 function App() {
   const [selectedTopic, setSelectedTopic] = useState(null);
