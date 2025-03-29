@@ -1,6 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./pages/RootLayout.jsx";
 import HomePage from "./pages/HomePage.jsx";
+import AboutPage from "./pages/AboutPage.jsx";
+import ContributePage from "./pages/ContributePage.jsx";
+
 
 function App() {
   const router = createBrowserRouter([
@@ -8,9 +11,19 @@ function App() {
       path: "/",
       element: <RootLayout />,
       children: [
-        { 
-          index: true, 
-          element: <HomePage /> 
+        {
+          index: true,
+          element: <HomePage />
+        },
+        {
+          path: "about",
+          index: true,
+          element: <AboutPage />
+        },
+        {
+          path: "contribute",
+          index: true,
+          element: <ContributePage />
         }
       ]
     }
