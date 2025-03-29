@@ -1,10 +1,12 @@
-import { Children } from "react";
+import React from 'react';
+
 export default function TabButton({onSelect, children, isSelected}){
     return(
-        <li>
-            <button className = {isSelected ? 'active' : undefined} onClick ={onSelect}>
-                {children}
-            </button>
-        </li>
+        <button 
+            className={isSelected ? 'active' : undefined} 
+            onClick={onSelect}
+        >
+            {children}
+        </button>
     )
 }

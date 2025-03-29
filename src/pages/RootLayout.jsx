@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { NavBar } from "../components/Navbar/Navbar";
+import  Navbar  from "../components/nav/Navbar.jsx";
 
 export default function RootLayout() {
   const NAVLINKS = [
@@ -9,16 +9,17 @@ export default function RootLayout() {
     },
     {
       navItem: "About",
-      navDest: "/"
+      navDest: "/about"
     },
     {
       navItem: "Contribute",
-      navDest: "/"
+      navDest: "/contribute"
     }
   ];
+  
   return (
     <>
-      <NavBar tags={NAVLINKS} />
+      <Navbar navLinks={NAVLINKS} />
       <main>
         <Outlet />
       </main>
