@@ -1,61 +1,24 @@
-import { CORE_CONCEPTS, EXAMPLES } from "../data.js";
-import { useState } from "react";
-
-import CoreConcept from "../components/CoreConcepts.jsx";
-import TabButton from "../components/TabButton.jsx";
-
 export default function HomePage() {
-  console.log("HomePage CORE_CONCEPTS:", CORE_CONCEPTS);
-  console.log("HomePage EXAMPLES:", EXAMPLES);
-
-  const [selectedTopic, setSelectedTopic] = useState(null);
-  
-  function handleClick(selectedButton) {
-    console.log("Button clicked:", selectedButton);
-    setSelectedTopic(selectedButton);
-  }
-
-  let tabContent = <p>Please select a topic</p>;
-  
-  if (selectedTopic) {
-    tabContent = (
-      <div>
-        <h3>{EXAMPLES[selectedTopic].title}</h3>
-        <p>{EXAMPLES[selectedTopic].description}</p>
-        <pre>
-          <code>{EXAMPLES[selectedTopic].code}</code>
-        </pre>
-      </div>
-    );
-  }
-
   return (
     <main>
-      <section id="core-concepts">
-        <h2>Core Concepts</h2>
-        <ul>
-          {CORE_CONCEPTS.map((concept, index) => {
-            console.log(`Rendering CoreConcept ${index}:`, concept);
-            return <CoreConcept key={concept.title} {...concept} />;
-          })}
+      <div className="main-title">
+        <h1>Full Stack Factory</h1>
+        <p>Crafting the parts, you decide how to assemble them</p>
+      </div>
+
+      <section className="topics-section">
+        <h2>Topics</h2>
+        <ul className="topics-grid">
+          <li className="topic-tile">
+            <span className="topic-name">JavaScript</span>
+          </li>
+          <li className="topic-tile">
+            <span className="topic-name">React.js</span>
+          </li>
+          <li className="topic-tile">
+            <span className="topic-name">C/C++ DSA</span>
+          </li>
         </ul>
-      </section>
-
-      <section id="examples">
-        <h2>Examples</h2>
-        <menu>
-          {Object.keys(EXAMPLES).map((topic) => (
-            <TabButton
-              key={topic}
-              isSelected={selectedTopic === topic}
-              onSelect={() => handleClick(topic)}
-            >
-              {topic}
-            </TabButton>
-          ))}
-        </menu>
-
-        {tabContent}
       </section>
     </main>
   );

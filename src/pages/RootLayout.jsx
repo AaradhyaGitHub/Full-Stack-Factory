@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import  Navbar  from "../components/nav/Navbar.jsx";
+import Navbar from "../components/nav/Navbar.jsx";
 
 export default function RootLayout() {
   const NAVLINKS = [
@@ -16,7 +16,7 @@ export default function RootLayout() {
       navDest: "/contribute"
     }
   ];
-  
+
   return (
     <>
       <Navbar navLinks={NAVLINKS} />
