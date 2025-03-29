@@ -11,12 +11,14 @@ export default function HomePage() {
         <ul className="topics-grid">
           <li className="topic-tile">
             <span className="topic-name">JavaScript</span>
+            <p>coming soon...</p>
           </li>
           <li className="topic-tile">
             <span className="topic-name">React.js</span>
           </li>
           <li className="topic-tile">
             <span className="topic-name">C/C++ DSA</span>
+            <p>coming soon...</p>
           </li>
         </ul>
       </section>
