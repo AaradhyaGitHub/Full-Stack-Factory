@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 export default function HomePage() {
   return (
     <main>
@@ -9,17 +10,23 @@ export default function HomePage() {
       <section className="topics-section">
         <h2>Topics</h2>
         <ul className="topics-grid">
-          <li className="topic-tile">
-            <span className="topic-name">JavaScript</span>
-            <p>coming soon...</p>
-          </li>
-          <li className="topic-tile">
-            <span className="topic-name">React.js</span>
-          </li>
-          <li className="topic-tile">
-            <span className="topic-name">C/C++ DSA</span>
-            <p>coming soon...</p>
-          </li>
+          <NavLink>
+            <li className="topic-tile">
+              <span className="topic-name">JavaScript</span>
+              <p>coming soon...</p>
+            </li>
+          </NavLink>
+          <NavLink>
+            <li className="topic-tile">
+              <span className="topic-name">React.js</span>
+            </li>
+          </NavLink>
+          <NavLink>
+            <li className="topic-tile">
+              <span className="topic-name">C/C++ DSA</span>
+              <p>coming soon...</p>
+            </li>
+          </NavLink>
         </ul>
       </section>
     </main>

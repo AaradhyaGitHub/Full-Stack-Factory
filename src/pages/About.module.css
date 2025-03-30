@@ -13,7 +13,6 @@
   .infoContainer {
     position: relative;
     padding: 8px;
-    background: linear-gradient(145deg, var(--light-metal), transparent);
     border-radius: 8px;
   }
   
@@ -64,7 +63,6 @@
   
   .info {
     margin: 0 auto;
-    background: rgba(26, 28, 32, 0.8);
     border: 1px solid var(--light-metal);
     border-radius: 4px;
     padding: 2.5rem;
