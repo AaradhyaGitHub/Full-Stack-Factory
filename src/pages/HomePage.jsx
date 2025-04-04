@@ -24,7 +24,7 @@ export default function HomePage() {
           <NavLink>
             <li className="topic-tile">
               <span className="topic-name">C/C++ DSA</span>
-              <p>coming soon...</p>
+              <p>Test..</p>
             </li>
           </NavLink>
         </ul>
