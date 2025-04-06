@@ -3,6 +3,7 @@ import RootLayout from "./pages/RootLayout.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import ContributePage from "./pages/ContributePage.jsx";
+import CourseLandingPage from "./pages/CourseLandingPage.jsx"
 
 
 function App() {
@@ -21,9 +22,8 @@ function App() {
           element: <AboutPage />
         },
         {
-          path: "contribute",
-          index: true,
-          element: <ContributePage />
+          path: "courses/:courseId", // Dynamic route for each course
+          element: <CourseLandingPage /> 
         }
       ]
     }

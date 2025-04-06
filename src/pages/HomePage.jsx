@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 export default function HomePage() {
+  
   return (
     <main>
       <div className="main-title">
@@ -10,13 +11,13 @@ export default function HomePage() {
       <section className="topics-section">
         <h2>Topics</h2>
         <ul className="topics-grid">
-          <NavLink>
+          <NavLink >
             <li className="topic-tile">
               <span className="topic-name">JavaScript</span>
               <p>coming soon...</p>
             </li>
           </NavLink>
-          <NavLink>
+          <NavLink to="/courses/react">
             <li className="topic-tile">
               <span className="topic-name">React.js</span>
             </li>
@@ -24,7 +25,7 @@ export default function HomePage() {
           <NavLink>
             <li className="topic-tile">
               <span className="topic-name">C/C++ DSA</span>
-              <p>Test..</p>
+              <p>coming soon...</p>
             </li>
           </NavLink>
         </ul>
@@ -32,3 +33,4 @@ export default function HomePage() {
     </main>
   );
 }
+//
