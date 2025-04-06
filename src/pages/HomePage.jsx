@@ -11,18 +11,18 @@ export default function HomePage() {
       <section className="topics-section">
         <h2>Topics</h2>
         <ul className="topics-grid">
-          <NavLink >
+          <NavLink to="/courses/js_section">
             <li className="topic-tile">
               <span className="topic-name">JavaScript</span>
               <p>coming soon...</p>
             </li>
           </NavLink>
-          <NavLink to="/courses/react">
+          <NavLink to="/courses/react_section">
             <li className="topic-tile">
               <span className="topic-name">React.js</span>
             </li>
           </NavLink>
-          <NavLink>
+          <NavLink to="/courses/cpp_dsa_section">
             <li className="topic-tile">
               <span className="topic-name">C/C++ DSA</span>
               <p>coming soon...</p>
