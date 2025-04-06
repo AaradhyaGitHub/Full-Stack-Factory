@@ -5,21 +5,28 @@ export default function RootLayout() {
   const NAVLINKS = [
     {
       navItem: "Home",
-      navDest: "/"
+      navDest: "/",
+      icon: "🏠"
     },
     {
       navItem: "About",
-      navDest: "/about"
+      navDest: "/about",
+      icon: "ℹ️"
     },
     {
       navItem: "Contribute",
-      navDest: "/contribute"
+      navDest: "/contribute",
+      icon: "🤝"
     }
   ];
 
   return (
     <>
-      <Navbar navLinks={NAVLINKS} />
+      <Navbar 
+        navLinks={NAVLINKS} 
+        orientation="horizontal" 
+        logo="Full Stack Factory" 
+      />
       <main>
         <Outlet />
       </main>

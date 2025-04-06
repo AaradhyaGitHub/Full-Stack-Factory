@@ -2,90 +2,53 @@ import { useParams } from "react-router-dom";
 import styles from "./CourseLandingPage.module.css";
 import { useState } from "react";
 import { LandingPageData } from "../data/LandingPageData";
-
-const units = LandingPageData.map((section) =>
-  section.units.map((unit) => console.log(unit.title))
-);
+import Navbar from "../components/nav/Navbar"; // Adjust path as needed
 
 const CourseLandingPage = () => {
   const { courseId } = useParams();
   const currentSection = LandingPageData.find(
     (section) => section.id === courseId
   );
-  console.log(currentSection);
-  const course = currentSection.title;
+  const course = currentSection?.title;
   const [activePage, setActivePage] = useState("curriculum");
-
-  //object to map over for Pagedata
 
   if (!course)
     return <div className={styles.notFound}>Course not found 🥲</div>;
 
+  // Define sidebar navigation links
+  const sideNavLinks = [
+    {
+      navItem: "Curriculum",
+      navDest: `/courses/${courseId}/curriculum`,
+      icon: "📚"
+    },
+    {
+      navItem: "Resources",
+      navDest: `/courses/${courseId}/resources`,
+      icon: "📁"
+    },
+    {
+      navItem: "Projects",
+      navDest: `/courses/${courseId}/projects`,
+      icon: "🛠️"
+    },
+    {
+      navItem: "Discussion",
+      navDest: `/courses/${courseId}/discussion`,
+      icon: "💬"
+    }
+  ];
+
   return (
     <div className={styles.pageContainer}>
-      {/* Left Sidebar Navigation */}
-      <nav className={styles.sidebar}>
-        <div className={styles.logoContainer}>
-          <h2 className={styles.logo}>Full Stack Factory</h2>
-        </div>
-
-        <ul className={styles.navItems}>
-          <li>
-            <button
-              className={`${styles.navButton} ${
-                activePage === "curriculum" ? styles.active : ""
-              }`}
-              onClick={() => setActivePage("curriculum")}
-            >
-              <span className={styles.navIcon}>📚</span>
-              <span className={styles.navLabel}>Curriculum</span>
-            </button>
-          </li>
-          <li>
-            <button
-              className={`${styles.navButton} ${
-                activePage === "resources" ? styles.active : ""
-              }`}
-              onClick={() => setActivePage("resources")}
-            >
-              <span className={styles.navIcon}>📁</span>
-              <span className={styles.navLabel}>Resources</span>
-            </button>
-          </li>
-          <li>
-            <button
-              className={`${styles.navButton} ${
-                activePage === "projects" ? styles.active : ""
-              }`}
-              onClick={() => setActivePage("projects")}
-            >
-              <span className={styles.navIcon}>🛠️</span>
-              <span className={styles.navLabel}>Projects</span>
-            </button>
-          </li>
-          <li>
-            <button
-              className={`${styles.navButton} ${
-                activePage === "discussion" ? styles.active : ""
-              }`}
-              onClick={() => setActivePage("discussion")}
-            >
-              <span className={styles.navIcon}>💬</span>
-              <span className={styles.navLabel}>Discussion</span>
-            </button>
-          </li>
-        </ul>
-
-        <div className={styles.sidebarFooter}>
-          <div className={styles.courseProgress}>
-            <span className={styles.progressLabel}>Course Progress</span>
-            <div className={styles.progressBarSmall}>
-              <div className={styles.progressFillSmall}></div>
-            </div>
-            <span className={styles.progressPercentage}>35% Complete</span>
-          </div>
-        </div>
-      </nav>
+      {/* Replace the old sidebar with the Navbar component */}
+      <Navbar
+        navLinks={sideNavLinks}
+        orientation="vertical"
+        logo="Full Stack Factory"
+        showProgress={true}
+        progressPercent={35}
+      />
 
       {/* Main Content Area */}
       <main className={styles.mainContent}>
@@ -129,8 +92,8 @@ const CourseLandingPage = () => {
 
           <div className={styles.courseImageContainer}>
             <img
-              src={course.image}
-              alt={course.title}
+              src={currentSection.image}
+              alt={currentSection.title}
               className={styles.courseImage}
             />
           </div>
@@ -179,4 +142,3 @@ const CourseLandingPage = () => {
 };
 
 export default CourseLandingPage;
-9;

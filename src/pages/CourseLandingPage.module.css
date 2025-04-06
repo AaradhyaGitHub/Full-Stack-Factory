@@ -36,149 +36,29 @@
 }
 
 /* Sidebar Navigation */
-.sidebar {
-  width: var(--sidebar-width);
-  background-color: var(--color-sidebar);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  height: 100vh;
-  left: 0;
-  top: 0;
-  z-index: 10;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.logoContainer {
-  padding: 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  color: white;
-  position: relative;
-  padding-left: 1.5rem;
-}
-
-.logo::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.25rem;
-  width: 0.75rem;
-  height: 0.75rem;
-  background-color: var(--color-primary);
-  border-radius: 2px;
-  transform: rotate(45deg);
-}
-
-.navItems {
-  list-style: none;
-  padding: 1rem 0;
-  margin: 0;
-  flex-grow: 1;
-}
-
-.navButton {
-  display: flex;
-  align-items: center;
-  padding: 0.75rem 1.5rem;
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  color: rgba(255, 255, 255, 0.7);
-  cursor: pointer;
-  transition: var(--transition);
-  font-family: var(--font-main);
-  font-size: 0.95rem;
-}
-
-.navButton:hover {
-  background-color: var(--color-sidebar-hover);
-  color: white;
-}
-
-.navButton.active {
-  background-color: rgba(230, 57, 70, 0.2);
-  color: white;
-  border-left: 3px solid var(--color-primary);
-}
-
-.navIcon {
-  margin-right: 0.75rem;
-  font-size: 1.125rem;
-}
-
-.navLabel {
-  font-weight: 500;
-}
-
-.sidebarFooter {
-  padding: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.courseProgress {
-  display: flex;
-  flex-direction: column;
-}
-
-.progressLabel {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 0.5rem;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.progressBarSmall {
-  height: 6px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
-  margin-bottom: 0.5rem;
-}
-
-.progressFillSmall {
-  width: 35%;
-  height: 100%;
-  background-color: var(--color-primary);
-  border-radius: 3px;
-}
-
-.progressPercentage {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.8);
-}
 
 /* Main Content Area */
 .mainContent {
-    position: absolute;
-    left: var(--sidebar-width);
-    right: 0; /* This will stretch the content all the way to the right edge */
-    width: auto; /* Let the position and left/right constraints determine width */
-    min-height: 100vh;
-    overflow-y: auto;
-    padding-top: 10%;
-    padding-right: 0%; /* Keep 5% padding on the right side */
-  }
+  position: absolute;
+  left: var(--sidebar-width);
+  right: 0; /* This will stretch the content all the way to the right edge */
+  width: auto; /* Let the position and left/right constraints determine width */
+  min-height: 100vh;
+  overflow-y: auto;
+  padding-top: 10%;
+  padding-right: 0%; /* Keep 5% padding on the right side */
+}
 
 /* Course Header */
-.courseHeader{
-    width: 100%;
+.courseHeader {
+  width: 100%;
   max-width: none;
 
   background-color: var(--color-dark);
-
 }
 .courseTabs {
   width: 100%;
   max-width: none;
-
 }
 
 .headerContent {
@@ -287,7 +167,7 @@
 
 /* Progress Bar */
 .progressBar {
-    width: 90%;
+  width: 90%;
   height: 6px;
   background-color: var(--color-gray-light);
   border-radius: 3px;
