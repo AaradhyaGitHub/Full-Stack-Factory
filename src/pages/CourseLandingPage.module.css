@@ -1,0 +1,591 @@
+/* CourseLandingPage.module.css */
+:root {
+  --color-bg: #f8f9fa;
+  --color-dark: #212529;
+  --color-primary: #e63946;
+  --color-secondary: #457b9d;
+  --color-light: #f1faee;
+  --color-accent: #a8dadc;
+  --color-gray: #6c757d;
+  --color-gray-light: #dee2e6;
+  --color-sidebar: #1d2125;
+  --color-sidebar-hover: #2a2f34;
+  --font-main: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --border-radius: 4px;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --sidebar-width: 240px;
+}
+
+/* Reset and Global Styles */
+
+/* Course Not Found */
+.notFound {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 5rem;
+  color: var(--color-gray);
+}
+
+/* Main Container Layout */
+.pageContainer {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--color-sidebar);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logoContainer {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: white;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.logo::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
+.navItems {
+  list-style: none;
+  padding: 1rem 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+}
+
+.navButton:hover {
+  background-color: var(--color-sidebar-hover);
+  color: white;
+}
+
+.navButton.active {
+  background-color: rgba(230, 57, 70, 0.2);
+  color: white;
+  border-left: 3px solid var(--color-primary);
+}
+
+.navIcon {
+  margin-right: 0.75rem;
+  font-size: 1.125rem;
+}
+
+.navLabel {
+  font-weight: 500;
+}
+
+.sidebarFooter {
+  padding: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.courseProgress {
+  display: flex;
+  flex-direction: column;
+}
+
+.progressLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.progressBarSmall {
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  margin-bottom: 0.5rem;
+}
+
+.progressFillSmall {
+  width: 35%;
+  height: 100%;
+  background-color: var(--color-primary);
+  border-radius: 3px;
+}
+
+.progressPercentage {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Main Content Area */
+.mainContent {
+    position: absolute;
+    left: var(--sidebar-width);
+    right: 0; /* This will stretch the content all the way to the right edge */
+    width: auto; /* Let the position and left/right constraints determine width */
+    min-height: 100vh;
+    overflow-y: auto;
+    padding-top: 10%;
+    padding-right: 0%; /* Keep 5% padding on the right side */
+  }
+
+/* Course Header */
+.courseHeader{
+    width: 100%;
+  max-width: none;
+
+  background-color: var(--color-dark);
+
+}
+.courseTabs {
+  width: 100%;
+  max-width: none;
+
+}
+
+.headerContent {
+  flex: 3;
+  padding-right: 2rem;
+}
+
+.courseImageContainer {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.courseImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border: 4px solid rgba(255, 255, 255, 0.1);
+}
+
+.courseTitle {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  position: relative;
+}
+
+.courseTitle::before {
+  content: "";
+  position: absolute;
+  left: -1.5rem;
+  top: 0.75rem;
+  width: 0.5rem;
+  height: 2.5rem;
+  background-color: var(--color-primary);
+}
+
+.courseDescription {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 80%;
+}
+
+/* Course Stats */
+.courseStats {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.statItem {
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.statNumber {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-primary);
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Author Info */
+.authorInfo {
+  margin-top: 2rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  display: inline-block;
+}
+
+.authorName {
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.authorButton {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  margin-top: 0.5rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: var(--transition);
+}
+
+.authorButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Progress Bar */
+.progressBar {
+    width: 90%;
+  height: 6px;
+  background-color: var(--color-gray-light);
+  border-radius: 3px;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.progressFill {
+  width: 35%;
+  height: 100%;
+  background-color: var(--color-primary);
+  border-radius: 3px;
+  position: relative;
+}
+
+.progressMarkers {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+.marker {
+  font-size: 0.75rem;
+  color: var(--color-gray);
+  position: relative;
+}
+
+.marker.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* Curriculum Section */
+.curriculum {
+  width: 95%;
+  margin-top: 2rem;
+}
+
+.curriculumTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.curriculumTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-primary);
+}
+
+.unitList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.unitItem {
+  margin-bottom: 1.5rem;
+}
+
+.unit {
+  border: 1px solid var(--color-gray-light);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: white;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.unit:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.expanded {
+  border-left: 4px solid var(--color-primary);
+}
+
+.unitToggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  text-align: left;
+  transition: var(--transition);
+}
+
+.unitToggle:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.unitNumber {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-right: 1rem;
+  font-family: "Roboto Mono", monospace;
+}
+
+.unitTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  flex-grow: 1;
+}
+
+.expandIcon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.expandIcon::before,
+.expandIcon::after {
+  content: "";
+  position: absolute;
+  background-color: var(--color-gray);
+  transition: var(--transition);
+}
+
+.expandIcon::before {
+  width: 14px;
+  height: 2px;
+  top: 9px;
+  left: 3px;
+}
+
+.expandIcon::after {
+  width: 2px;
+  height: 14px;
+  top: 3px;
+  left: 9px;
+  opacity: 1;
+}
+
+.expanded .expandIcon::after {
+  opacity: 0;
+}
+
+.unitDivider {
+  margin: 0;
+  border: none;
+  border-top: 1px solid var(--color-gray-light);
+}
+
+.lessonList {
+  list-style: none;
+  padding: 0.5rem 0;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+.lessonItem {
+  padding: 0.75rem 1rem 0.75rem 3.5rem;
+  position: relative;
+  transition: var(--transition);
+  font-size: 0.95rem;
+  color: var(--color-dark);
+}
+
+.lessonItem:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.lessonItem::before {
+  content: "•";
+  position: absolute;
+  left: 2.5rem;
+  color: var(--color-gray);
+}
+
+.lessonItem.completed {
+  color: var(--color-gray);
+}
+
+.lessonItem.completed::before {
+  content: "✓";
+  color: var(--color-secondary);
+}
+
+.lessonItem.active {
+  background-color: rgba(230, 57, 70, 0.05);
+  font-weight: 500;
+}
+
+.lessonItem.active::before {
+  content: "►";
+  color: var(--color-primary);
+  font-size: 0.8rem;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .courseTitle {
+    font-size: 2.2rem;
+  }
+
+  .courseHeader {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 64px;
+    overflow: hidden;
+  }
+
+  .logo {
+    font-size: 0;
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo::before {
+    position: static;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .navLabel {
+    display: none;
+  }
+
+  .navIcon {
+    margin-right: 0;
+    font-size: 1.25rem;
+  }
+
+  .navButton {
+    padding: 1rem;
+    justify-content: center;
+  }
+
+  .sidebarFooter {
+    display: none;
+  }
+
+  .mainContent {
+    margin-left: 64px;
+    width: calc(100% - 64px);
+  }
+
+  .courseHeader {
+    flex-direction: column;
+  }
+
+  .headerContent {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .courseDescription {
+    max-width: 100%;
+  }
+
+  .courseImageContainer {
+    width: 100%;
+  }
+
+  .courseImage {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .courseTabs {
+    padding: 1rem;
+  }
+
+  .courseHeader {
+    padding: 1.5rem 1rem;
+  }
+
+  .courseStats {
+    flex-direction: column;
+  }
+
+  .statItem {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .courseTitle {
+    font-size: 1.8rem;
+  }
+
+  .courseTitle::before {
+    left: -1rem;
+    height: 1.8rem;
+  }
+}
