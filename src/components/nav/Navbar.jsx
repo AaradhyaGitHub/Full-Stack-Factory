@@ -101,7 +101,6 @@ export default function Navbar({
                       className={({ isActive }) => isActive ? 'active' : ''}
                       onClick={handleLinkClick}
                     >
-                       <hr />
                       <span className="nav-label">{navLink.navItem}</span>
                       
                     </NavLink>

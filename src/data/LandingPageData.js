@@ -1,4 +1,7 @@
 import reactLanding from './graphics/reactLanding.png'
+import jsLanding from './graphics/jsLanding.jpg'
+import dsaLanding from './graphics/dsaLanding.png'
+
 export const LandingPageData = [
   {
     id: "react_section",
@@ -123,7 +126,7 @@ export const LandingPageData = [
     title: "JavaScript Essentials",
     description:
       "Master JavaScript from scratch: learn about DOM manipulation, asynchronous programming, data structures, and more.",
-    image: "/images/js.jpg",
+    image: jsLanding,
     unitCount: 10,
     lessonCount: 50, // Approximate number of lessons
     difficultyLevel: "Beginner to Intermediate",
@@ -233,7 +236,7 @@ export const LandingPageData = [
     title: "C/C++ Data Structures and Algorithms",
     description:
       "Master the fundamentals of C/C++ with focus on data structures, algorithms, and problem-solving techniques.",
-    image: "/images/cpp.jpg",
+    image: dsaLanding,
     unitCount: 10,
     lessonCount: 50, // Approximate number of lessons
     difficultyLevel: "Advanced",
