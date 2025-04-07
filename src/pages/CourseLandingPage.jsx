@@ -15,35 +15,32 @@ const CourseLandingPage = () => {
   if (!course)
     return <div className={styles.notFound}>Course not found 🥲</div>;
 
-  // Define sidebar navigation links
-  const sideNavLinks = [
-    {
-      navItem: "Curriculum",
-      navDest: `/courses/${courseId}/curriculum`,
-      icon: "📚"
-    },
-    {
-      navItem: "Resources",
-      navDest: `/courses/${courseId}/resources`,
-      icon: "📁"
-    },
-    {
-      navItem: "Projects",
-      navDest: `/courses/${courseId}/projects`,
-      icon: "🛠️"
-    },
-    {
-      navItem: "Discussion",
-      navDest: `/courses/${courseId}/discussion`,
-      icon: "💬"
-    }
-  ];
+  //Navbar Builder
+  //Navbar expects:
+  // navLinks={sideNavLinks}
+  // orientation="vertical"
+  // logo="Full Stack Factory"
+  // showProgress={true}
+  // progressPercent={35}
+
+  const currentSectionUnitTitles = currentSection.units.map((unit) => {
+    return unit.title;
+  });
+  console.log(currentSectionUnitTitles);
+  const currentSideNavLinks = currentSectionUnitTitles.map((title) => {
+    return {
+      navItem: title,
+      navDest: `/courses/${courseId}/curriculum`
+    };
+  });
+
+  console.log(currentSideNavLinks);
 
   return (
     <div className={styles.pageContainer}>
       {/* Replace the old sidebar with the Navbar component */}
       <Navbar
-        navLinks={sideNavLinks}
+        navLinks={currentSideNavLinks}
         orientation="vertical"
         logo="Full Stack Factory"
         showProgress={true}

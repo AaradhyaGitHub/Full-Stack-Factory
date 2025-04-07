@@ -69,7 +69,6 @@ export default function Navbar({
                         to={navLink.navDest}
                         className={({ isActive }) => isActive ? 'active' : ''}
                       >
-                        {navLink.icon && <span className="nav-icon">{navLink.icon}</span>}
                         {navLink.navItem}
                       </NavLink>
                     </li>
@@ -102,9 +101,11 @@ export default function Navbar({
                       className={({ isActive }) => isActive ? 'active' : ''}
                       onClick={handleLinkClick}
                     >
-                      {navLink.icon && <span className="nav-icon">{navLink.icon}</span>}
+                       <hr />
                       <span className="nav-label">{navLink.navItem}</span>
+                      
                     </NavLink>
+                   
                   </li>
                 ))}
               </ul>

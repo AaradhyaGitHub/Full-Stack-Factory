@@ -6,17 +6,14 @@ export default function RootLayout() {
     {
       navItem: "Home",
       navDest: "/",
-      icon: "🏠"
     },
     {
       navItem: "About",
       navDest: "/about",
-      icon: "ℹ️"
     },
     {
       navItem: "Contribute",
       navDest: "/contribute",
-      icon: "🤝"
     }
   ];
 

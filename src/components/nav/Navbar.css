@@ -6,7 +6,7 @@
     --dark-metal: #1a1c20;
     --light-metal: #71797e;
     --faded-white: #f5f5f5;
-    --nav-height: 60px;
+    --nav-height: 70px;
     --nav-mobile-height: 60px;
     --sidebar-width: 240px;
     --sidebar-mobile-width: 85%;
@@ -52,7 +52,6 @@
     width: var(--sidebar-width);
     background-color: var(--dark-metal);
     flex-direction: column;
-    padding: 0;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
   }
   
@@ -80,7 +79,7 @@
     height: 24px;
     background-color: var(--rust-red);
     transform: rotate(45deg);
-    margin-right: 10px;
+    margin-right: 15px;
   }
   
   .logo-text {
@@ -110,16 +109,27 @@
   .navbar-container.horizontal .navbar ul {
     flex-direction: row;
     justify-content: center;
-    gap: 20px;
+    gap: 40px;
   }
   
-  .navbar-container.vertical .navbar ul {
+  .navbar-container.vertical {
+    left: 0;
+    padding-left: 0;
+    margin-left: 0;
+    transform: none;
+}
+  
+
+.navbar-container.vertical .navbar ul {
     flex-direction: column;
     width: 100%;
     margin-top: 20px;
-  }
+    padding: 0;
+    align-items: flex-start; /* This forces items to stick to the left */
+}
   
   .navbar ul li {
+    
     display: flex;
   }
   
@@ -134,6 +144,9 @@
     transition: var(--transition);
     display: flex;
     align-items: center;
+
+    
+    
   }
   
   /* Horizontal navbar link styles */
@@ -141,6 +154,7 @@
     padding: 0 15px;
     height: var(--nav-height);
     position: relative;
+    
   }
   
   .navbar-container.horizontal .navbar ul li a::before {
@@ -169,30 +183,30 @@
   .navbar-container.horizontal .navbar ul li a:hover {
     color: var(--steel-blue);
   }
-  
   .navbar-container.horizontal .navbar ul li a:hover::before,
   .navbar-container.horizontal .navbar ul li a:hover::after {
     height: 3px;
     opacity: 1;
   }
-  
   .navbar-container.horizontal .navbar ul li a.active {
     color: var(--rust-red);
     font-weight: 600;
   }
-  
   .navbar-container.horizontal .navbar ul li a.active::before,
   .navbar-container.horizontal .navbar ul li a.active::after {
     height: 3px;
     opacity: 1;
   }
+  .navbar-container.vertical .navbar ul li {
+    width: 100%;
+}
   
   /* Vertical navbar link styles */
   .navbar-container.vertical .navbar ul li a {
-    padding: 12px 20px;
+    padding: 12px 20px 12px 1px; /* top right bottom left - reduced left padding slightly */
     width: 100%;
-    border-left: 3px solid transparent;
-  }
+    
+}
   
   .navbar-container.vertical .navbar ul li a:hover {
     background-color: rgba(90, 125, 154, 0.1);
