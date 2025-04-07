@@ -1,10 +1,11 @@
+import reactLanding from './graphics/reactLanding.png'
 export const LandingPageData = [
   {
     id: "react_section",
     title: "React.js Toolkits",
     description:
       "Learn React.js by mastering small systems that make up web apps. Dive into hooks, components, state management, and more.",
-    image: "/images/react.jpg",
+    image: reactLanding,
     unitCount: 10,
     lessonCount: 50, // Approximate number of lessons
     difficultyLevel: "Intermediate",

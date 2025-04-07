@@ -44,7 +44,7 @@ const CourseLandingPage = () => {
         orientation="vertical"
         logo="Full Stack Factory"
         showProgress={true}
-        progressPercent={35}
+        progressPercent={0}
       />
 
       {/* Main Content Area */}
