@@ -35,139 +35,192 @@
   width: 100%;
 }
 
-/* Sidebar Navigation */
-
 /* Main Content Area */
 .mainContent {
   position: absolute;
   left: var(--sidebar-width);
-  right: 0; /* This will stretch the content all the way to the right edge */
-  width: auto; /* Let the position and left/right constraints determine width */
+  right: 0;
+  width: calc(100% - var(--sidebar-width));
   min-height: 100vh;
   overflow-y: auto;
-  padding-top: 10%;
-  padding-right: 0%; /* Keep 5% padding on the right side */
+  padding: 3rem;
+  box-sizing: border-box;
 }
 
-/* Course Header */
+/* Course Header - Modern & Minimalist Design */
 .courseHeader {
   width: 100%;
-  max-width: none;
-
-  background-color: var(--color-dark);
+  padding: 3.5rem 4rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  position: relative;
+  overflow: hidden;
 }
+
+.courseHeader::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background-color: var(--color-primary);
+}
+
+.headerContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 60%;
+}
+
+.courseImageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 40%;
+}
+
+.courseImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: var(--shadow-md);
+}
+
+.courseTitle {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.courseDescription {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-gray);
+  margin-bottom: 2rem;
+}
+
+/* Stats redesign */
+.courseStats {
+  display: flex;
+  gap: 2.5rem;
+  margin: 2rem 0;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.statNumber {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Minimalist & Professional Author Info */
+.authorInfo {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-gray-light);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.authorAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.authorAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.authorAvatar span {
+  font-weight: 700;
+  color: var(--color-secondary);
+  font-size: 1rem;
+}
+
+.authorDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorName {
+  font-weight: 600;
+  color: var(--color-dark);
+  font-size: 0.95rem;
+  margin: 0 0 0.25rem 0;
+}
+
+.authorMeta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.publishDate {
+  color: var(--color-gray);
+  font-size: 0.85rem;
+}
+
+.authorButton {
+  background-color: transparent;
+  color: var(--color-secondary);
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.authorButton:hover {
+  color: var(--color-primary);
+}
+
 .courseTabs {
   width: 100%;
   max-width: none;
 }
 
-.headerContent {
-  flex: 3;
-  padding-right: 2rem;
-}
-
-.courseImageContainer {
-  flex: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.courseImage {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  border: 4px solid rgba(255, 255, 255, 0.1);
-}
-
-.courseTitle {
-  font-size: 2.8rem;
-  font-weight: 800;
-  margin: 0 0 1rem 0;
-  text-transform: uppercase;
-  letter-spacing: -0.5px;
-  line-height: 1.1;
-  position: relative;
-}
-
-.courseTitle::before {
-  content: "";
-  position: absolute;
-  left: -1.5rem;
-  top: 0.75rem;
-  width: 0.5rem;
-  height: 2.5rem;
-  background-color: var(--color-primary);
-}
-
-.courseDescription {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  color: rgba(255, 255, 255, 0.8);
-  max-width: 80%;
-}
-
-/* Course Stats */
-.courseStats {
-  display: flex;
-  margin-bottom: 2rem;
-}
-
-.statItem {
-  margin-right: 2rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.statNumber {
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1;
-  color: var(--color-primary);
-}
-
-.statLabel {
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-/* Author Info */
-.authorInfo {
-  margin-top: 2rem;
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 1rem;
-  border-radius: var(--border-radius);
-  display: inline-block;
-}
-
-.authorName {
-  font-weight: 600;
-  color: var(--color-accent);
-}
-
-.authorButton {
-  background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
-  margin-top: 0.5rem;
-  cursor: pointer;
-  font-size: 0.875rem;
-  transition: var(--transition);
-}
-
-.authorButton:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.5);
-}
-
 /* Progress Bar */
 .progressBar {
-  width: 90%;
+  width: 100%;
   height: 6px;
   background-color: var(--color-gray-light);
   border-radius: 3px;
@@ -203,7 +256,7 @@
 
 /* Curriculum Section */
 .curriculum {
-  width: 95%;
+  width: 100%;
   margin-top: 2rem;
 }
 
@@ -367,14 +420,28 @@
   font-size: 0.8rem;
 }
 
-/* Media Queries */
-@media (max-width: 1024px) {
-  .courseTitle {
-    font-size: 2.2rem;
-  }
-
-  .courseHeader {
+/* Media Queries - Improved Responsiveness */
+@media (max-width: 1200px) {
+  .mainContent {
     padding: 2rem;
+  }
+  
+  .courseHeader {
+    padding: 2.5rem;
+  }
+  
+  .courseTitle {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .headerContent {
+    max-width: 55%;
+  }
+  
+  .courseImageContainer {
+    max-width: 45%;
   }
 }
 
@@ -383,7 +450,13 @@
     width: 64px;
     overflow: hidden;
   }
-
+  
+  .mainContent {
+    left: 64px;
+    width: calc(100% - 64px);
+    padding: 1.5rem;
+  }
+  
   .logo {
     font-size: 0;
     padding-left: 0;
@@ -415,57 +488,103 @@
     display: none;
   }
 
-  .mainContent {
-    margin-left: 64px;
-    width: calc(100% - 64px);
-  }
-
   .courseHeader {
     flex-direction: column;
+    padding: 2rem;
   }
-
+  
+  .headerContent, .courseImageContainer {
+    max-width: 100%;
+  }
+  
   .headerContent {
-    padding-right: 0;
+    order: 2;
+  }
+  
+  .courseImageContainer {
+    order: 1;
     margin-bottom: 2rem;
+  }
+  
+  .courseImage {
+    max-height: 200px;
+    object-fit: contain;
   }
 
   .courseDescription {
     max-width: 100%;
   }
-
-  .courseImageContainer {
-    width: 100%;
-  }
-
-  .courseImage {
-    max-width: 80%;
-  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
   .courseTabs {
-    padding: 1rem;
+    padding: 1rem 0;
   }
 
   .courseHeader {
-    padding: 1.5rem 1rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .courseStats {
     flex-direction: column;
+    gap: 1rem;
   }
 
-  .statItem {
-    margin-right: 0;
-    margin-bottom: 1rem;
+  .authorInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .authorMeta {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .authorButton {
+    margin-top: 0.5rem;
   }
 
   .courseTitle {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
+  
+  .unitToggle {
+    padding: 0.75rem;
+  }
+  
+  .lessonItem {
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+  }
+  
+  .lessonItem::before {
+    left: 1.5rem;
+  }
+}
 
-  .courseTitle::before {
-    left: -1rem;
-    height: 1.8rem;
+@media (max-width: 480px) {
+  .mainContent {
+    padding: 1rem;
+  }
+  
+  .courseHeader {
+    padding: 1.25rem;
+  }
+  
+  .courseStats {
+    margin: 1rem 0;
+  }
+  
+  .statNumber {
+    font-size: 1.5rem;
+  }
+  
+  .courseTitle {
+    font-size: 1.4rem;
+  }
+  
+  .courseDescription {
+    font-size: 1rem;
   }
 }

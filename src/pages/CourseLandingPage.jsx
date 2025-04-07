@@ -72,18 +72,20 @@ const CourseLandingPage = () => {
             </div>
 
             <div className={styles.authorInfo}>
-              <p>
-                Section Author -{" "}
-                <span className={styles.authorName}>
-                  {currentSection.author}
-                </span>
-              </p>
-              <button className={styles.authorButton}>
-                Learn more about author
-              </button>
-              <p>
-                Released on: <span>{currentSection.date}</span>
-              </p>
+              <div className={styles.authorAvatar}>
+                <span>{currentSection.author.charAt(0)}</span>
+              </div>
+              <div className={styles.authorDetails}>
+                <h4 className={styles.authorName}>{currentSection.author}</h4>
+                <div className={styles.authorMeta}>
+                  <span className={styles.publishDate}>
+                    Released: {currentSection.date}
+                  </span>
+                  <button className={styles.authorButton}>
+                    Learn more about author
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -111,11 +113,11 @@ const CourseLandingPage = () => {
           <div className={styles.curriculum}>
             <h2 className={styles.curriculumTitle}>Course Curriculum</h2>
             <ul className={styles.unitList}>
-              {currentSection.units.map((unit) => (
+              {currentSection.units.map((unit, index) => (
                 <li key={unit.id} className={styles.unitItem}>
                   <div className={`${styles.unit} ${styles.expanded}`}>
                     <button className={styles.unitToggle}>
-                      <span className={styles.unitNumber}>01</span>
+                      <span className={styles.unitNumber}>{index + 1}</span>
                       <span className={styles.unitTitle}>{unit.title}</span>
                       <span className={styles.expandIcon}></span>
                     </button>
