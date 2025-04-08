@@ -3,7 +3,7 @@ import RootLayout from "./pages/RootLayout.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import ContributePage from "./pages/ContributePage.jsx";
-import CourseLandingPage from "./pages/CourseLandingPage.jsx"
+import CourseLandingPage from "./pages/CourseLandingPage.jsx";
 
 
 function App() {
@@ -23,7 +23,13 @@ function App() {
         },
         {
           path: "courses/:courseId", // Dynamic route for each course
-          element: <CourseLandingPage /> 
+          element: <CourseLandingPage />,
+          children: [
+            {
+              path: "unit/:unitId", // this matches /courses/react_section/unit-1
+              element: <HomePage />
+            }
+          ]
         }
       ]
     }

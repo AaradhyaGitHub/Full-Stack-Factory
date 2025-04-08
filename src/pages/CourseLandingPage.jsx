@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import styles from "./CourseLandingPage.module.css";
 import { useState } from "react";
 import { LandingPageData } from "../data/LandingPageData";
@@ -6,6 +6,8 @@ import Navbar from "../components/nav/Navbar"; // Adjust path as needed
 
 const CourseLandingPage = () => {
   const { courseId } = useParams();
+  const { unitId } = useParams();
+
   const currentSection = LandingPageData.find(
     (section) => section.id === courseId
   );
@@ -26,7 +28,19 @@ const CourseLandingPage = () => {
   const currentSectionUnitTitles = currentSection.units.map((unit) => {
     return unit.title;
   });
-  console.log(currentSectionUnitTitles);
+
+  const testLinks = currentSection.units.map((unit) => {
+    return {
+      navItem: unit.title,
+      navDest: `/courses/${courseId}/${encodeURIComponent(unit.title)}`
+
+    };
+  });
+
+  console.log(testLinks)
+  
+
+
   const currentSideNavLinks = currentSectionUnitTitles.map((title) => {
     return {
       navItem: title,
@@ -34,7 +48,6 @@ const CourseLandingPage = () => {
     };
   });
 
-  console.log(currentSideNavLinks);
 
   return (
     <div className={styles.pageContainer}>
@@ -116,11 +129,13 @@ const CourseLandingPage = () => {
               {currentSection.units.map((unit, index) => (
                 <li key={unit.id} className={styles.unitItem}>
                   <div className={`${styles.unit} ${styles.expanded}`}>
+                    <NavLink>
                     <button className={styles.unitToggle}>
                       <span className={styles.unitNumber}>{index + 1}</span>
                       <span className={styles.unitTitle}>{unit.title}</span>
                       <span className={styles.expandIcon}></span>
                     </button>
+                    </NavLink>
                     <hr className={styles.unitDivider} />
                     <ul className={styles.lessonList}>
                       {unit.topicsCovered.map((topic) => (

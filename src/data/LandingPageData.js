@@ -1,6 +1,6 @@
-import reactLanding from './graphics/reactLanding.png'
-import jsLanding from './graphics/jsLanding.jpg'
-import dsaLanding from './graphics/dsaLanding.png'
+import reactLanding from "./graphics/reactLanding.png";
+import jsLanding from "./graphics/jsLanding.jpg";
+import dsaLanding from "./graphics/dsaLanding.png";
 
 export const LandingPageData = [
   {
