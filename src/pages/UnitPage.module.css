@@ -1,19 +1,142 @@
 :root {
-    --color-bg: #f8f9fa;
-    --color-dark: #212529;
-    --color-primary: #e63946;
-    --color-secondary: #457b9d;
-    --color-light: #f1faee;
-    --color-accent: #a8dadc;
-    --color-gray: #6c757d;
-    --color-gray-light: #dee2e6;
-    --color-sidebar: #1d2125;
-    --color-sidebar-hover: #2a2f34;
-    --font-main: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-    --border-radius: 4px;
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
-    --sidebar-width: 240px;
+  --color-bg: #f8f9fa;
+  --color-dark: #212529;
+  --color-primary: #e63946;
+  --color-primary: #457b9d;
+  --color-light: #f1faee;
+  --color-accent: #a8dadc;
+  --color-gray: #6c757d;
+  --color-gray-light: #dee2e6;
+  --color-sidebar: #1d2125;
+  --color-sidebar-hover: #2a2f34;
+  --font-main: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --border-radius: 4px;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --sidebar-width: 240px;
+}
+
+.unitPage {
+  padding: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: var(--font-main);
+  color: var(--color-gray-light);
+}
+.mainContent {
+  background-color: var(--color-sidebar);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+}
+.headerContent {
+  border-bottom: 1px solid var(--color-gray);
+  margin-bottom: 5rem;
+  padding-bottom: 3rem;
+}
+
+.courseTitle {
+  font-size: 3rem;
+  font-weight: 1000;
+  margin-bottom: 2rem;
+  color: var(--color-light);
+}
+
+.aboutUnit {
+  background-color: var(--color-sidebar-hover);
+  padding: 1.2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.aboutUnitHeading {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-light);
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  color: var(--color-gray-light);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.lessonSection {
+  padding: 1rem;
+  background-color: #0d0f1022; /* Light background to pop against darker elements */
+  border-radius: 0.7rem;
+  box-shadow: 2rem;
+}
+
+.lessonTabs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  border-radius: #e63946;
+  box-shadow: #e63946;
+}
+
+.lessonTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-light);
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.lessonTitle:hover {
+  color: var(--color-primary);
+}
+
+.lessonDescription {
+  font-size: 1rem;
+  color: var(--color-gray);
+  line-height: 1.6; /* Makes text more readable */
+}
+
+.lessonInfo {
+  font-size: 0.875rem;
+  color: var(--color-gray-light);
+  font-style: italic; /* Adds some flair */
+  margin-bottom: 1rem; /* Space for better visual balance */
+}
+
+.articleList {
+  list-style: none; /* Removes default list bullets */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* No extra space */
+}
+
+.articleItem {
+  padding-bottom: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.article {
+    position: relative; /* Necessary for the pseudo-element */
+    font-weight: 600;
+    color: var(--color-light);
+    margin-left: 1rem;
   }
   
+  .article::after {
+    content: "";
+    position: absolute;
+    bottom: -2px; /* Adjust to move the underline closer or farther */
+    left: 0;
+    width: 0;
+    height: 2px; /* Thickness of the underline */
+    background-color: #e63946; /* The red color you specified */
+    transition: width 0.3s ease; /* Smooth animation */
+  }
+  
+  .article:hover::after {
+    width: 100%; /* Full width when hovering */
+  }
+
+  
+  .articleProgressGraphics svg {
+    vertical-align: middle; /* This makes sure the icon aligns with the text */
+  }
