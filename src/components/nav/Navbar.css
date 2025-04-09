@@ -178,7 +178,7 @@ body {
   transition: var(--transition);
   display: flex;
   align-items: center;
-  position: relative; /* Added for positioning pseudo-elements */
+  position: relative;
 }
 
 /* Horizontal navbar link styles */

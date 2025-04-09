@@ -4,7 +4,8 @@ import HomePage from "./pages/HomePage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import ContributePage from "./pages/ContributePage.jsx";
 import CourseLandingPage from "./pages/CourseLandingPage.jsx";
-
+import UnitPage from "./pages/UnitPage.jsx";
+import CourseSidebarLayout from "./pages/CourseSidebarLayout.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -18,18 +19,19 @@ function App() {
         },
         {
           path: "about",
-          index: true,
           element: <AboutPage />
         },
         {
-          path: "courses/:courseId", // Dynamic route for each course
-          element: <CourseLandingPage />,
-          children: [
-            {
-              path: "unit/:unitId", // this matches /courses/react_section/unit-1
-              element: <HomePage />
-            }
-          ]
+          path: "contribute",
+          element: <ContributePage />
+        },
+        {
+          path: "courses/:courseId",
+          element: <CourseSidebarLayout><CourseLandingPage /></CourseSidebarLayout>
+        },
+        {
+          path: "courses/:courseId/unit/:unitId",
+          element: <CourseSidebarLayout><UnitPage /></CourseSidebarLayout>
         }
       ]
     }
