@@ -6,6 +6,7 @@ import Navbar from "../components/nav/Navbar";
 const CourseSidebarLayout = ({ children }) => {
   const { courseId } = useParams();
 
+  // Find the current course section
   const currentSection = LandingPageData.find(
     (section) => section.id === courseId
   );
@@ -14,12 +15,12 @@ const CourseSidebarLayout = ({ children }) => {
     return <div className={styles.notFound}>Course not found 🥲</div>;
 
   // Build navigation links for sidebar
-  const currentSideNavLinks = currentSection.units.map((unit) => {
+  const currentSideNavLinks = currentSection.units && currentSection.units.map((unit) => {
     return {
       navItem: unit.title,
-      navDest: `/courses/${courseId}/unit/${encodeURIComponent(unit.title)}`
+      navDest: `/courses/${courseId}/unit/${unit.id}`
     };
-  });
+  }) || [];
 
   return (
     <div className={styles.pageContainer}>

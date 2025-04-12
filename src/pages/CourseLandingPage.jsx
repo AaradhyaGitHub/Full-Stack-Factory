@@ -8,7 +8,7 @@ const CourseLandingPage = () => {
   const currentSection = LandingPageData.find(
     (section) => section.id === courseId
   );
-  
+
   if (!currentSection) return null; // The parent layout already handles this check
 
   return (
@@ -80,7 +80,11 @@ const CourseLandingPage = () => {
             {currentSection.units.map((unit, index) => (
               <li key={unit.id} className={styles.unitItem}>
                 <div className={`${styles.unit} ${styles.expanded}`}>
-                  <NavLink to={`/courses/${courseId}/unit/${encodeURIComponent(unit.title)}`}>
+                  <NavLink
+                    to={`/courses/${courseId}/unit/${encodeURIComponent(
+                      unit.title
+                    )}`}
+                  >
                     <button className={styles.unitToggle}>
                       <span className={styles.unitNumber}>{index + 1}</span>
                       <span className={styles.unitTitle}>{unit.title}</span>

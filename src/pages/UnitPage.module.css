@@ -68,6 +68,7 @@
   background-color: #0d0f1022; /* Light background to pop against darker elements */
   border-radius: 0.7rem;
   box-shadow: 2rem;
+  margin-bottom: 3rem;
 }
 
 .lessonTabs {
@@ -115,28 +116,27 @@
 }
 
 .article {
-    position: relative; /* Necessary for the pseudo-element */
-    font-weight: 600;
-    color: var(--color-light);
-    margin-left: 1rem;
-  }
-  
-  .article::after {
-    content: "";
-    position: absolute;
-    bottom: -2px; /* Adjust to move the underline closer or farther */
-    left: 0;
-    width: 0;
-    height: 2px; /* Thickness of the underline */
-    background-color: #e63946; /* The red color you specified */
-    transition: width 0.3s ease; /* Smooth animation */
-  }
-  
-  .article:hover::after {
-    width: 100%; /* Full width when hovering */
-  }
+  position: relative; /* Necessary for the pseudo-element */
+  font-weight: 600;
+  color: var(--color-light);
+  margin-left: 1rem;
+}
 
-  
-  .articleProgressGraphics svg {
-    vertical-align: middle; /* This makes sure the icon aligns with the text */
-  }
+.article::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Adjust to move the underline closer or farther */
+  left: 0;
+  width: 0;
+  height: 2px; /* Thickness of the underline */
+  background-color: #e63946; /* The red color you specified */
+  transition: width 0.3s ease; /* Smooth animation */
+}
+
+.article:hover::after {
+  width: 100%; /* Full width when hovering */
+}
+
+.articleProgressGraphics svg {
+  vertical-align: middle; /* This makes sure the icon aligns with the text */
+}
