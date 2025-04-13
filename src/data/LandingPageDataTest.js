@@ -2,7 +2,7 @@ import reactLanding from "./graphics/reactLanding.png";
 import jsLanding from "./graphics/jsLanding.jpg";
 import dsaLanding from "./graphics/dsaLanding.png";
 
-export const LandingPageData = [
+export const LandingPageDataTest = [
   {
     id: "react_section",
     title: "React.js Toolkits",

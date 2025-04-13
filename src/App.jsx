@@ -30,7 +30,7 @@ function App() {
           element: <CourseSidebarLayout><CourseLandingPage /></CourseSidebarLayout>
         },
         {
-          path: "courses/:courseId/unit/:unitId",
+          path: "courses/:courseId/:unitId",
           element: <CourseSidebarLayout><UnitPage /></CourseSidebarLayout>
         }
       ]

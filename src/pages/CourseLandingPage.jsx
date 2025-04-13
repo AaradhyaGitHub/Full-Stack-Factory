@@ -81,7 +81,7 @@ const CourseLandingPage = () => {
               <li key={unit.id} className={styles.unitItem}>
                 <div className={`${styles.unit} ${styles.expanded}`}>
                   <NavLink
-                    to={`/courses/${courseId}/unit/${encodeURIComponent(
+                    to={`/courses/${courseId}/${encodeURIComponent(
                       unit.title
                     )}`}
                   >

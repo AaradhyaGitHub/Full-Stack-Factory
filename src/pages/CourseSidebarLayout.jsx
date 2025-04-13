@@ -10,17 +10,20 @@ const CourseSidebarLayout = ({ children }) => {
   const currentSection = LandingPageData.find(
     (section) => section.id === courseId
   );
-  
+
   if (!currentSection)
     return <div className={styles.notFound}>Course not found 🥲</div>;
 
   // Build navigation links for sidebar
-  const currentSideNavLinks = currentSection.units && currentSection.units.map((unit) => {
-    return {
-      navItem: unit.title,
-      navDest: `/courses/${courseId}/unit/${unit.id}`
-    };
-  }) || [];
+  const currentSideNavLinks =
+    (currentSection.units &&
+      currentSection.units.map((unit) => {
+        return {
+          navItem: unit.title,
+          navDest: `/courses/${courseId}/${unit.id}`
+        };
+      })) ||
+    [];
 
   return (
     <div className={styles.pageContainer}>
@@ -31,9 +34,7 @@ const CourseSidebarLayout = ({ children }) => {
         showProgress={true}
         progressPercent={0}
       />
-      <main className={styles.mainContent}>
-        {children}
-      </main>
+      <main className={styles.mainContent}>{children}</main>
     </div>
   );
 };
