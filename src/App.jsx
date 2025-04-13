@@ -6,6 +6,7 @@ import ContributePage from "./pages/ContributePage.jsx";
 import CourseLandingPage from "./pages/CourseLandingPage.jsx";
 import UnitPage from "./pages/UnitPage.jsx";
 import CourseSidebarLayout from "./pages/CourseSidebarLayout.jsx";
+import Article from "./components/article/Article.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -27,11 +28,28 @@ function App() {
         },
         {
           path: "courses/:courseId",
-          element: <CourseSidebarLayout><CourseLandingPage /></CourseSidebarLayout>
+          element: (
+            <CourseSidebarLayout>
+              <CourseLandingPage />
+            </CourseSidebarLayout>
+          )
         },
         {
           path: "courses/:courseId/:unitId",
-          element: <CourseSidebarLayout><UnitPage /></CourseSidebarLayout>
+          element: (
+            <CourseSidebarLayout>
+              <UnitPage />
+            </CourseSidebarLayout>
+          ),
+         
+        },
+        {
+          path: "courses/:courseId/:unitId/:articleId",
+          element: (
+            <CourseSidebarLayout>
+              <Article />
+            </CourseSidebarLayout>
+          ),
         }
       ]
     }
