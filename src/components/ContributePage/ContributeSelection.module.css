@@ -1,0 +1,268 @@
+:root {
+  --color-bg: #f8f9fa;
+  --color-dark: #212529;
+  --color-primary: #e63946;
+  --color-primary: #457b9d;
+  --color-light: #f1faee;
+  --color-accent: #a8dadc;
+  --color-gray: #6c757d;
+  --color-gray-light: #dee2e6;
+  --color-sidebar: #1d2125;
+  --color-sidebar-hover: #2a2f34;
+  --font-main: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --border-radius: 4px;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --sidebar-width: 240px;
+}
+
+.contributePage {
+  background-color: var(--color-dark);
+  min-height: 100vh;
+  font-family: var(--font-main);
+  color: var(--color-dark);
+  padding: 2rem 0;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+.header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+.subtitle {
+  font-size: 1rem;
+  color: var(--color-gray);
+  max-width: 600px;
+  margin: 0 auto;
+}
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.sectionHeader h2 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+.addButton {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  border: none;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  align-self: flex-start;
+}
+.addButton:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+.coursesList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.courseCard {
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  border: 1px solid var(--color-gray-light);
+}
+.courseCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.courseCard h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+  font-size: 1.1rem;
+}
+.courseCard p {
+  color: var(--color-gray);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+.courseCount {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  background-color: rgba(168, 218, 220, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+.formOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+.formContainer {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  width: 100%;
+  max-width: 500px;
+  box-shadow: var(--shadow-md);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.formContainer h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+  font-size: 1.25rem;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.formGroup label {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.input,
+.textarea {
+  padding: 0.75rem;
+  border: 1px solid var(--color-gray-light);
+  border-radius: var(--border-radius);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(69, 123, 157, 0.2);
+}
+.formActions {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.cancelButton {
+  background-color: var(--color-gray-light);
+  color: var(--color-dark);
+  border: none;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  width: 100%;
+}
+.submitButton {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  border: none;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  width: 100%;
+}
+.cancelButton:hover,
+.submitButton:hover {
+  opacity: 0.9;
+}
+/* Media Queries for Responsive Design */
+@media screen and (min-width: 480px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  .title {
+    font-size: 2.25rem;
+  }
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  .formActions {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .cancelButton,
+  .submitButton {
+    width: auto;
+  }
+}
+@media screen and (min-width: 640px) {
+  .sectionHeader {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .coursesList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  .header {
+    margin-bottom: 2.5rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+  .title {
+    font-size: 2.5rem;
+  }
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  .courseCard {
+    padding: 1.5rem;
+  }
+  .courseCard h3 {
+    font-size: 1.25rem;
+  }
+  .formContainer {
+    padding: 2rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .coursesList {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .header {
+    margin-bottom: 3rem;
+  }
+}

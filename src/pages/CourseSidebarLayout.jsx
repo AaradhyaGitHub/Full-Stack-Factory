@@ -2,10 +2,9 @@ import { useParams } from "react-router-dom";
 import styles from "./CourseSidebarLayout.module.css"; // You'll need to create this
 import { LandingPageData } from "../data/LandingPageData";
 import Navbar from "../components/nav/Navbar";
-import { LandingPageDataTest } from "../data/LandingPageDataTest";
 
 const CourseSidebarLayout = ({ children }) => {
-  const { courseId, unitId,articleId } = useParams();
+  const { courseId, unitId, lessonId } = useParams();
 
   // Find the current course section
   const currentSection = LandingPageData.find(
@@ -15,51 +14,64 @@ const CourseSidebarLayout = ({ children }) => {
   if (!currentSection)
     return <div className={styles.notFound}>Course not found 🥲</div>;
 
-  // Build navigation links for sidebar
-  const currentTestSection = LandingPageDataTest.find(
-    (section) => section.id === courseId
+  // Find current unit (if selected)
+  const currentUnit = currentSection.units?.find((unit) => unit.id === unitId);
+
+  // Find current lesson (if selected)
+  const currentLesson = currentUnit?.topicsCovered?.find(
+    (topic) => topic.lessonId === lessonId
   );
-  const currentUnit = currentTestSection?.units?.find(
-    (unit) => unit.id === unitId
-  );
 
-  const currentLessonNavLinks = currentUnit?.topicsCovered?.flatMap((lesson) =>
-  lesson.lessonArticles.map((article) => ({
-    navItem: article,
-    navDest: `/courses/${courseId}/${unitId}/${encodeURIComponent(article)}`
-  }))
-) || [];
+  // Build navigation links
+  // These are the course's units (always shown in the sidebar)
+  const unitNavLinks = currentSection.units.map((unit) => ({
+    navItem: unit.title,
+    navDest: `/courses/${courseId}/${unit.id}`,
+    isActive: unit.id === unitId
+  }));
 
+  // If a unit is selected, also show its lessons
+  const lessonNavLinks =
+    currentUnit?.topicsCovered?.map((topic) => ({
+      navItem: topic.lessonTitle,
+      navDest: `/courses/${courseId}/${unitId}/${topic.lessonId}`,
+      isActive: topic.lessonId === lessonId,
+      isSubItem: true
+    })) || [];
 
-  const currentSideNavLinks =
-    (currentSection.units &&
-      currentSection.units.map((unit) => {
-        return {
-          navItem: unit.title,
-          navDest: `/courses/${courseId}/${unit.id}`
-        };
-      })) ||
-    [];
+  // If a lesson is selected, also show its articles
+  const articleNavLinks =
+    currentLesson?.lessonArticles?.map((article, index) => ({
+      navItem: article,
+      navDest: `/courses/${courseId}/${unitId}/${lessonId}/${index}`,
+      isSubSubItem: true
+    })) || [];
 
-  let navigationLink;
+  // Combine all navigation links
+  const navigationLinks = [
+    ...unitNavLinks,
+    ...(unitId ? lessonNavLinks : []),
+    ...(lessonId ? articleNavLinks : [])
+  ];
 
-  if (articleId && unitId) {
-    navigationLink = currentLessonNavLinks;
-  } else if (unitId) {
-    navigationLink = currentSideNavLinks;
-  } else {
-    navigationLink = currentSideNavLinks; // or maybe a course overview?
-  }
+  // Calculate progress (just an example based on URL depth)
+  let progressPercent = 0;
+  if (courseId) progressPercent = 25;
+  if (unitId) progressPercent = 50;
+  if (lessonId) progressPercent = 75;
 
   return (
     <div className={styles.pageContainer}>
-      <Navbar
-        navLinks={navigationLink}
-        orientation="vertical"
-        logo="Full Stack Factory"
-        showProgress={true}
-        progressPercent={0}
-      />
+      <div className={styles.sidebar}>
+        <h3 className={styles.courseTitle}>{currentSection.title}</h3>
+        <Navbar
+          navLinks={navigationLinks}
+          orientation="vertical"
+          logo="Full Stack Factory"
+          showProgress={true}
+          progressPercent={progressPercent}
+        />
+      </div>
       <main className={styles.mainContent}>{children}</main>
     </div>
   );

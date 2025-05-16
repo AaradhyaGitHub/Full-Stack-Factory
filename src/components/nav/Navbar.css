@@ -119,12 +119,15 @@ body {
 
 /* Navbar styles */
 .navbar {
-  flex: 1;
-}
-
-.navbar-container.horizontal .navbar {
   display: flex;
   justify-content: center;
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+.navbar-container.horizontal {
+  position: relative;
 }
 
 /* Hide horizontal navbar links on mobile and show hamburger instead */
@@ -153,6 +156,11 @@ body {
   padding-left: 0;
   margin-left: 0;
   transform: none;
+}
+
+.navbar-container.vertical .navbar {
+  position: static;
+  width: auto;
 }
 
 .navbar-container.vertical .navbar ul {
@@ -276,6 +284,7 @@ body {
   align-items: center;
   justify-content: center;
   transition: var(--transition);
+  z-index: 10;
 }
 
 .hamburger-btn:hover {
@@ -423,6 +432,68 @@ body {
   color: var(--faded-white);
   font-size: 12px;
   text-align: right;
+}
+
+/* Theme switcher in footer */
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.theme-label {
+  color: var(--faded-white);
+  font-size: 14px;
+}
+
+.theme-toggle {
+  position: relative;
+  width: 50px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: var(--dark-metal);
+  border: 2px solid var(--light-metal);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.theme-toggle::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--faded-white);
+  transition: var(--transition);
+}
+
+.theme-toggle.dark::after {
+  transform: translateX(26px);
+  background-color: var(--rust-red);
+}
+
+/* Social links in footer */
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+.social-link {
+  color: var(--faded-white);
+  font-size: 18px;
+  transition: var(--transition);
+}
+
+.social-link:hover {
+  color: var(--rust-red);
+  transform: translateY(-3px);
 }
 
 /* Add dropdown menu support */
@@ -642,12 +713,56 @@ body {
   animation: fadeIn 0.3s ease;
 }
 
+/* Tooltips for collapsed sidebar icons */
+.navbar-container.vertical .nav-icon {
+  position: relative;
+}
+
+.navbar-container.vertical .nav-icon::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--dark-metal);
+  color: var(--faded-white);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+  pointer-events: none;
+  margin-left: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1200;
+}
+
+@media (max-width: 1200px) and (min-width: 769px) {
+  .navbar-container.vertical .nav-icon:hover::after {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
 /* Accessibility improvements */
 .navbar ul li a:focus,
 .hamburger-btn:focus,
-.close-btn:focus {
+.close-btn:focus,
+.dropdown-content a:focus {
   outline: 2px solid var(--steel-blue);
   outline-offset: -2px;
+}
+
+/* Improved focus state for better visibility */
+.navbar ul li a:focus-visible,
+.hamburger-btn:focus-visible,
+.close-btn:focus-visible,
+.dropdown-content a:focus-visible {
+  outline: 2px solid var(--rust-red);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(168, 60, 50, 0.3);
 }
 
 /* Skip to content link for keyboard users */
@@ -660,8 +775,69 @@ body {
   color: white;
   z-index: 2000;
   transition: top 0.3s;
+  border-radius: 0 0 4px 0;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .skip-to-content:focus {
   top: 0;
+  outline: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ARIA support for dropdown menus */
+[aria-expanded="true"] .dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .navbar ul li a.active,
+  .sidebar-nav ul li a.active {
+    border-color: CanvasText;
+    background-color: transparent;
+  }
+
+  .navbar-container.horizontal .navbar ul li a::before,
+  .navbar-container.horizontal .navbar ul li a::after {
+    background-color: CanvasText;
+  }
+
+  .progress-fill {
+    background-color: Highlight;
+  }
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .dropdown-toggle::after,
+  .close-btn:hover {
+    transform: none !important;
+  }
+}
+
+/* Active navigation indicator for screen readers */
+.navbar ul li a.active::before,
+.sidebar-nav ul li a.active::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.navbar ul li a.active::before,
+.sidebar-nav ul li a.active::before {
+  content: "Current page: ";
 }

@@ -2,12 +2,12 @@ import { useParams, NavLink, Outlet } from "react-router-dom";
 import styles from "./UnitPage.module.css";
 import Article from "../components/article/Article";
 import { CheckCircle } from "lucide-react";
-import { LandingPageDataTest } from "../data/LandingPageDataTest";
+import { LandingPageData } from "../data/LandingPageData";
 
 export default function UnitPage() {
   const { courseId, unitId } = useParams();
 
-  const currentSection = LandingPageDataTest.find(
+  const currentSection = LandingPageData.find(
     (section) => section.id === courseId
   );
 
@@ -23,9 +23,8 @@ export default function UnitPage() {
 
   return (
     <>
-    <Outlet />
+      <Outlet />
       <div className={styles.unitPage}>
-      
         <main className={styles.mainContent}>
           <header className={styles.headerContent}>
             <h1 className={styles.courseTitle}>
@@ -36,7 +35,6 @@ export default function UnitPage() {
               <p className={styles.description}> {currentUnit.title}</p>
             </div>
           </header>
-         
 
           {currentUnit.topicsCovered.map((lesson) => (
             <section className={styles.lessonSection} key={lesson.lessonTitle}>

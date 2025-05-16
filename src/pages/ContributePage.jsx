@@ -1,10 +1,9 @@
-export default function Contribute() {
+import ContributeSelection from "../components/ContributePage/ContributeSelection";
+
+export default function ContributePage() {
   return (
-    <main>
-      <div className="main-title">
-        <h1>Contribute</h1>
-      </div>
-      <p>React Form..</p>
-    </main>
+    <>
+      <ContributeSelection />
+    </>
   );
 }

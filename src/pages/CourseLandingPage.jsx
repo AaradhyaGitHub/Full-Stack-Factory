@@ -95,8 +95,8 @@ const CourseLandingPage = () => {
                   <hr className={styles.unitDivider} />
                   <ul className={styles.lessonList}>
                     {unit.topicsCovered.map((topic) => (
-                      <li key={topic} className={styles.lessonItem}>
-                        {topic}
+                      <li key={topic.lessonId} className={styles.lessonItem}>
+                        {topic.lessonTitle}
                       </li>
                     ))}
                   </ul>
