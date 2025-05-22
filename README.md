@@ -67,4 +67,3 @@ If this sounds interesting or you'd like to be part of it — as a learner, coll
 ---
 
 **Built with intention. Documented with care. Inspired by curiosity.**  
-Full Stack Factory is my journey from student to builder, and this is just the beginning.
